@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Protogen_Bluetooth_App.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Protogen_Bluetooth_App"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.TabBarIsVisible="True"
+    Title="Protogen_Bluetooth_App">
+
+
+    <!--<ShellContent
+        Title="Connect"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />-->
+
+    <TabBar>
+        <Tab Title="Bluetooth" Icon="bluetooth_outline.svg">
+          <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
+        </Tab>
+        <Tab Title="Color" Icon="color_palette_outline.svg">
+            <ShellContent ContentTemplate="{DataTemplate local:ColorPage}"/>
+        </Tab>
+        <Tab Title="Expressions" Icon="alert_circle_outline.svg">
+            <ShellContent ContentTemplate="{DataTemplate local:ExpressionsPage}"/>
+        </Tab>
+        <Tab Title="Animations" Icon="play_outline.svg">
+            <ShellContent ContentTemplate="{DataTemplate local:AnimationsPage}"/>
+        </Tab>
+        <Tab Title="Settings" Icon="settings_outline.svg">
+            <ShellContent ContentTemplate="{DataTemplate local:SettingsPage}"/>
+        </Tab>
+    </TabBar>
+
+</Shell>

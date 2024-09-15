@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Protogen_Bluetooth_App.MainPage"
+             Title="Connect">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="5,0"
+            Spacing="25">
+            <Button
+                x:Name="BTScanBtn"
+                Text="Scan for Bluetooth Devices"
+                Clicked="BTScanBtn_Clicked"/>
+            <ScrollView MaximumHeightRequest="520">
+                <VerticalStackLayout>
+                    <Label HorizontalTextAlignment="Center">Juhu</Label>
+                    <Label HorizontalTextAlignment="Center">Juhu</Label>
+                    <Label HorizontalTextAlignment="Center">Juhu</Label>
+                    <Label HorizontalTextAlignment="Center">Juhu</Label>
+                    <Label HorizontalTextAlignment="Center">Juhu</Label>
+                    <Label HorizontalTextAlignment="Center">Juhu</Label>
+                    <Label HorizontalTextAlignment="Center">Juhu</Label>
+                    <Label HorizontalTextAlignment="Center">Juhu</Label>
+                    <Label HorizontalTextAlignment="Center">Juhu</Label>
+                    <Label HorizontalTextAlignment="Center">Juhu</Label>
+                    <Label HorizontalTextAlignment="Center">Juhu</Label>
+                    <Label HorizontalTextAlignment="Center">Juhu</Label>
+                    <Label HorizontalTextAlignment="Center">Juhu</Label>
+                    <Label HorizontalTextAlignment="Center">Juhu</Label>
+                    <Label HorizontalTextAlignment="Center">Juhu</Label>
+                    <Label HorizontalTextAlignment="Center">Juhu</Label>
+                    <Label HorizontalTextAlignment="Center">Juhu</Label>
+                    <Label HorizontalTextAlignment="Center">Juhu</Label>
+                    <Label HorizontalTextAlignment="Center">Juhu</Label>
+                    <Label HorizontalTextAlignment="Center">Juhu</Label>
+                    <Label HorizontalTextAlignment="Center">Juhu</Label>
+                    <Label HorizontalTextAlignment="Center">Juhu</Label>
+                    <Label HorizontalTextAlignment="Center">Juhu</Label>
+                    <Label HorizontalTextAlignment="Center">Juhu</Label>
+                    <Label HorizontalTextAlignment="Center">Juhu</Label>
+                    <Label HorizontalTextAlignment="Center">Juhu</Label>
+                    <Label HorizontalTextAlignment="Center">Juhu</Label>
+                    <Label HorizontalTextAlignment="Center">Juhu</Label>
+                    <Label HorizontalTextAlignment="Center">Juhu</Label>
+                    <Label HorizontalTextAlignment="Center">Juhu</Label>
+
+                </VerticalStackLayout>
+            </ScrollView>
+
+            <Button
+                x:Name="BTConnectBtn"
+                Text="Connect"/>
+           
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

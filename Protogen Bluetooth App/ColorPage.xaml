@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Maui.ColorPicker;assembly=Maui.ColorPicker"
+             x:Class="Protogen_Bluetooth_App.ColorPage"
+             Title="Color">
+    <ContentPage.Resources>
+        <Style x:Key="SavedColorBtn" TargetType="Button">
+            <Setter Property="Margin" Value="0,3,0,0"/>
+        </Style>
+    </ContentPage.Resources>
+    <VerticalStackLayout Padding="5,0">
+        <controls:ColorPicker
+                x:Name="ColorPicker"
+                ColorFlowDirection="Horizontal"
+                ColorSpectrumStyle="TintToHueStyle"
+                PointerRingBorderUnits="0.3"
+                PointerRingDiameterUnits="0.7"
+                HeightRequest="300">
+        </controls:ColorPicker>
+        <FlexLayout Direction="Row" JustifyContent="SpaceBetween">
+            <Button Margin="0,5,0,0" WidthRequest="150" FontSize="18" Text="Save Color"/>
+            <Button Margin="0,5,0,0" WidthRequest="150" FontSize="18" Text="Gay Mode"/>  
+        </FlexLayout>
+        <FlexLayout Direction="Row" JustifyContent="SpaceBetween">
+            <Button BackgroundColor="Black" Style="{StaticResource SavedColorBtn}"/>
+            <Button BackgroundColor="Purple"  Style="{StaticResource SavedColorBtn}"/>
+            <Button BackgroundColor="White" Style="{StaticResource SavedColorBtn}"/>
+            <Button Style="{StaticResource SavedColorBtn}"/>
+            <Button Style="{StaticResource SavedColorBtn}"/>
+            <Button Style="{StaticResource SavedColorBtn}"/>
+            <Button Style="{StaticResource SavedColorBtn}"/>
+            <Button Style="{StaticResource SavedColorBtn}"/>
+        </FlexLayout>
+        <Label x:Name="CurrentColorIndicator" Margin="0,5,0,0" HeightRequest="50" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+               BackgroundColor="HotPink"
+               Text="#FF69B4"/>
+
+
+    </VerticalStackLayout>
+</ContentPage>

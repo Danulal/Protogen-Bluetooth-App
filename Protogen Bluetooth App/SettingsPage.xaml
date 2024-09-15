@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Protogen_Bluetooth_App.SettingsPage"
+             Title="Settings">
+    <ContentPage.Resources>
+        <Style x:Key="ToggleBtnText" TargetType="Label">
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="HorizontalOptions" Value="Start"/>
+            <Setter Property="Margin" Value="20,0,0,0"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+        <Style x:Key="SettingsSlider" TargetType="Slider">
+            <!--<Setter Property="Margin" Value="0,20,0,0"/>-->
+            <Setter Property="VerticalOptions" Value="Center"/>
+        </Style>
+    </ContentPage.Resources>
+    <ScrollView>
+        <VerticalStackLayout>
+            <Grid>
+                <Label Text="Boop Sensor" Style="{StaticResource ToggleBtnText}"/>
+                <Switch/>
+            </Grid>
+            <Grid>
+                <Label Text="Microphone" Style="{StaticResource ToggleBtnText}"/>
+                <Switch/>
+            </Grid>
+            <Grid>
+                <Label Text="other setting" Style="{StaticResource ToggleBtnText}"/>
+                <Switch/>
+            </Grid>
+            <Grid>
+                <Label Text="other setting" Style="{StaticResource ToggleBtnText}"/>
+                <Switch/>
+            </Grid>
+            <Grid>
+                <Label Text="other setting" Style="{StaticResource ToggleBtnText}"/>
+                <Switch/>
+            </Grid>
+            <Grid>
+                <Label Text="other setting" Style="{StaticResource ToggleBtnText}"/>
+                <Switch/>
+            </Grid>
+
+            <VerticalStackLayout>
+                <Label Text="Microphone Sensitivity" Style="{StaticResource ToggleBtnText}"/>
+                <Slider Style="{StaticResource SettingsSlider}"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout>
+                <Label Text="Animation Speed" Style="{StaticResource ToggleBtnText}"/>
+                <Slider Style="{StaticResource SettingsSlider}"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout>
+                <Label Text="Other Thingy" Style="{StaticResource ToggleBtnText}"/>
+                    <Slider Style="{StaticResource SettingsSlider}"/>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Protogen_Bluetooth_App.ExpressionsPage"
+             Title="Expressions">
+    <ContentPage.Resources>
+        <Style x:Key="FlexButton" TargetType="Button">
+            <Setter Property="HeightRequest" Value="150"/>
+            <Setter Property="WidthRequest" Value="175"/>
+            <Setter Property="Margin" Value="0,15,0,0"/>
+        </Style>
+    </ContentPage.Resources>
+    <FlexLayout Direction="Row" JustifyContent="SpaceAround">
+        <VerticalStackLayout>
+            <Button Style="{StaticResource FlexButton}" Text="Sad"/>
+            <Button Style="{StaticResource FlexButton}" Text="Angry"/>
+            <Button Style="{StaticResource FlexButton}" Text="..."/>
+            <Button Style="{StaticResource FlexButton}" Text="..."/>
+        </VerticalStackLayout>
+        <VerticalStackLayout>
+            <Button Style="{StaticResource FlexButton}" Text="Happy"/>
+            <Button Style="{StaticResource FlexButton}" Text="..."/>
+            <Button Style="{StaticResource FlexButton}" Text="..."/>
+            <Button Style="{StaticResource FlexButton}" Text="..."/>
+        </VerticalStackLayout>
+    </FlexLayout>
+</ContentPage>
