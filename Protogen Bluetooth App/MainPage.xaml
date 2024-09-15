@@ -12,8 +12,8 @@
                 x:Name="BTScanBtn"
                 Text="Scan for Bluetooth Devices"
                 Clicked="BTScanBtn_Clicked"/>
-            <ScrollView MaximumHeightRequest="520">
-                <VerticalStackLayout>
+            <ScrollView HeightRequest="520">
+                <VerticalStackLayout x:Name="DeviceList">
                     <Label HorizontalTextAlignment="Center">Juhu</Label>
                     <Label HorizontalTextAlignment="Center">Juhu</Label>
                     <Label HorizontalTextAlignment="Center">Juhu</Label>
