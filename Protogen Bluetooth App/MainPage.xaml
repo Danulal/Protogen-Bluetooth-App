@@ -2,57 +2,120 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Protogen_Bluetooth_App.MainPage"
-             Title="Connect">
+             Title="Bluetooth"
+             Shell.BackgroundColor="#303030"
+             Shell.TitleColor="White"
+             Shell.ForegroundColor="White">
+    <ContentPage.ToolbarItems>
 
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="5,0"
-            Spacing="25">
-            <Button
-                x:Name="BTScanBtn"
-                Text="Scan for Bluetooth Devices"
-                Clicked="BTScanBtn_Clicked"/>
-            <ScrollView HeightRequest="520">
-                <VerticalStackLayout x:Name="DeviceList">
-                    <Label HorizontalTextAlignment="Center">Juhu</Label>
-                    <Label HorizontalTextAlignment="Center">Juhu</Label>
-                    <Label HorizontalTextAlignment="Center">Juhu</Label>
-                    <Label HorizontalTextAlignment="Center">Juhu</Label>
-                    <Label HorizontalTextAlignment="Center">Juhu</Label>
-                    <Label HorizontalTextAlignment="Center">Juhu</Label>
-                    <Label HorizontalTextAlignment="Center">Juhu</Label>
-                    <Label HorizontalTextAlignment="Center">Juhu</Label>
-                    <Label HorizontalTextAlignment="Center">Juhu</Label>
-                    <Label HorizontalTextAlignment="Center">Juhu</Label>
-                    <Label HorizontalTextAlignment="Center">Juhu</Label>
-                    <Label HorizontalTextAlignment="Center">Juhu</Label>
-                    <Label HorizontalTextAlignment="Center">Juhu</Label>
-                    <Label HorizontalTextAlignment="Center">Juhu</Label>
-                    <Label HorizontalTextAlignment="Center">Juhu</Label>
-                    <Label HorizontalTextAlignment="Center">Juhu</Label>
-                    <Label HorizontalTextAlignment="Center">Juhu</Label>
-                    <Label HorizontalTextAlignment="Center">Juhu</Label>
-                    <Label HorizontalTextAlignment="Center">Juhu</Label>
-                    <Label HorizontalTextAlignment="Center">Juhu</Label>
-                    <Label HorizontalTextAlignment="Center">Juhu</Label>
-                    <Label HorizontalTextAlignment="Center">Juhu</Label>
-                    <Label HorizontalTextAlignment="Center">Juhu</Label>
-                    <Label HorizontalTextAlignment="Center">Juhu</Label>
-                    <Label HorizontalTextAlignment="Center">Juhu</Label>
-                    <Label HorizontalTextAlignment="Center">Juhu</Label>
-                    <Label HorizontalTextAlignment="Center">Juhu</Label>
-                    <Label HorizontalTextAlignment="Center">Juhu</Label>
-                    <Label HorizontalTextAlignment="Center">Juhu</Label>
-                    <Label HorizontalTextAlignment="Center">Juhu</Label>
+        <ToolbarItem
+            Priority="0"
+            Order="Primary"
+            IsEnabled="True"
+            Clicked="ToolbarItem_Clicked"
+            IconImageSource="bluetooth_outline_white.svg">
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
 
+    <Grid>
+        <Grid Margin="20, 20, 20, 0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Border
+                    Background="#303030"
+                    StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="8, 8, 8, 8"/>
+                    </Border.StrokeShape>
+                </Border>
+                <VerticalStackLayout>
+                    <Label Text="Connected Devices" TextColor="White" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Start" Margin="20, 10, 0, 0" />
+                    <ScrollView VerticalOptions="Start" IsClippedToBounds="True">
+                        <ListView x:Name="ConnectedBluetoothDeviceList" Margin="20, 0, 20, 0" SeparatorColor="Transparent" InputTransparent="True" RowHeight="60" HeightRequest="150">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid>
+                                            <Border
+                                                Background="#353535"
+                                                StrokeThickness="0">
+                                                <Border.StrokeShape>
+                                                    <RoundRectangle CornerRadius="0, 8, 0, 0"/>
+                                                </Border.StrokeShape>
+                                            </Border>
+                                            <HorizontalStackLayout>
+                                                <StackLayout Padding="10" Spacing="-6" BackgroundColor="Transparent">
+                                                    <Label Text="{Binding DeviceName}" TextColor="White" FontSize="Medium" FontAttributes="Bold" />
+                                                    <Label Text="{Binding DeviceAddress}" TextColor="White" FontSize="Small" Opacity="0.5" />
+                                                </StackLayout>
+                                            </HorizontalStackLayout>
+                                            <Button WidthRequest="50" HeightRequest="50" BackgroundColor="Transparent" HorizontalOptions="End" Margin="5" Clicked="DisconnectFromDeviceBtn_Clicked">
+                                                <Button.ImageSource>
+                                                    <FileImageSource File="unlink_outline.svg"/>
+                                                </Button.ImageSource>
+                                            </Button>
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </ScrollView>
                 </VerticalStackLayout>
-            </ScrollView>
 
-            <Button
-                x:Name="BTConnectBtn"
-                Text="Connect"/>
-           
-        </VerticalStackLayout>
-    </ScrollView>
+                <Label HorizontalOptions="Center" VerticalOptions="Center" Text="Keine Geräte" FontSize="Large" TextColor="Gray" IsVisible="False" />
+            </Grid>
 
+            <Grid Grid.Row="1" Margin="0, 15, 0, 0">
+                <Border
+                    Background="#303030"
+                    StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="8, 8, 0, 0"/>
+                    </Border.StrokeShape>
+                </Border>
+
+                <VerticalStackLayout>
+                    <Label Text="Available Devices" TextColor="White" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Start" Margin="20, 10, 0, 0" />
+                    <ScrollView VerticalOptions="Start" IsClippedToBounds="True">
+                        <ListView x:Name="AvailableBluetoothDeviceList" Margin="20, 0, 20, 0" SeparatorColor="Transparent" InputTransparent="True" RowHeight="60" HeightRequest="390" ChildRemoved="AvailableBluetoothDeviceList_ChildrenChanged" ChildAdded="AvailableBluetoothDeviceList_ChildrenChanged">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid>
+                                            <Border
+                                                Background="#353535"
+                                                StrokeThickness="0">
+                                                <Border.StrokeShape>
+                                                    <RoundRectangle CornerRadius="8, 8, 8, 8"/>
+                                                </Border.StrokeShape>
+                                            </Border>
+                                            <HorizontalStackLayout>
+                                                <StackLayout Padding="10" Spacing="-6" BackgroundColor="Transparent">
+                                                    <Label Text="{Binding DeviceName}" TextColor="White" FontSize="Medium" FontAttributes="Bold" />
+                                                    <Label Text="{Binding DeviceAddress}" TextColor="White" FontSize="Small" Opacity="0.5" />
+                                                </StackLayout>
+                                            </HorizontalStackLayout>
+                                            <Button WidthRequest="50" HeightRequest="50" BackgroundColor="Transparent" HorizontalOptions="End" Margin="5" Clicked="ConnectToDeviceBtn_Clicked">
+                                                <Button.ImageSource>
+                                                    <FileImageSource File="link_outline.svg"/>
+                                                </Button.ImageSource>
+                                            </Button>
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </ScrollView>
+                </VerticalStackLayout>
+
+                <Label x:Name="BluetoothNoAvailableDevicesIndicator" HorizontalOptions="Center" VerticalOptions="Center" Text="Keine Geräte" FontSize="Large" TextColor="Gray" IsVisible="False" />
+            </Grid>
+        </Grid>
+        <Image Source="shadow.png" BackgroundColor="Transparent" VerticalOptions="Start" HeightRequest="20" Opacity="0.5" Aspect="Fill" />
+    </Grid>
 </ContentPage>
