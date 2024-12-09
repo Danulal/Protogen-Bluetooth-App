@@ -16,7 +16,8 @@
                 ColorSpectrumStyle="TintToHueStyle"
                 PointerRingBorderUnits="0.3"
                 PointerRingDiameterUnits="0.7"
-                HeightRequest="300">
+                HeightRequest="300"
+            PickedColorChanged="ColorPicker_PickedColorChanged">
         </controls:ColorPicker>
         <FlexLayout Direction="Row" JustifyContent="SpaceBetween">
             <Button Margin="0,5,0,0" WidthRequest="150" FontSize="18" Text="Save Color"/>

@@ -19,6 +19,7 @@ namespace Protogen_Bluetooth_App.Platforms.Android.Bluetooth
         private bool connection_failed = false;
         private BluetoothAdapter _bluetoothAdapter;
         private BluetoothDevice _bluetoothDevice;
+        private BluetoothSocket _bluetoothSocket;
         private List<BluetoothSocket> bluetoothSockets = new();
 
         public BluetoothConnector()
@@ -44,7 +45,7 @@ namespace Protogen_Bluetooth_App.Platforms.Android.Bluetooth
             return connectedDevices;
         }
 
-        public void ConnectToDevice(RCBluetoothDevice device)
+        public bool ConnectToDevice(RCBluetoothDevice device)
         {
             _bluetoothDevice = _bluetoothAdapter.GetRemoteDevice(device.Address);
 
@@ -52,8 +53,7 @@ namespace Protogen_Bluetooth_App.Platforms.Android.Bluetooth
 
             //BluetoothSocket _bluetoothSocket = _bluetoothDevice.CreateRfcommSocketToServiceRecord(UUID.FromString("00001101-0000-1000-8000-00805f9b34fb"));
             // Print UUIDs to debug
-            BluetoothSocket _bluetoothSocket = _bluetoothDevice.CreateInsecureRfcommSocketToServiceRecord(UUID.FromString("00001101-0000-1000-8000-00805f9b34fb"));
-            //try
+            _bluetoothSocket = _bluetoothDevice.CreateInsecureRfcommSocketToServiceRecord(UUID.FromString("00001101-0000-1000-8000-00805f9b34fb"));            //try
             //{
             //    _bluetoothSocket.Connect();
             //}
@@ -63,9 +63,18 @@ namespace Protogen_Bluetooth_App.Platforms.Android.Bluetooth
             //    return;
             //}
 
-            _bluetoothSocket.Connect();
+            try
+            {
+                _bluetoothSocket.Connect();
+                bluetoothSockets.Add(_bluetoothSocket);
+            }
+            catch
+            {
+                return false;
+            }
 
-            bluetoothSockets.Add(_bluetoothSocket);
+            return true;
+
         }
 
         public void DisconnectDevice(RCBluetoothDevice device)
@@ -82,36 +91,59 @@ namespace Protogen_Bluetooth_App.Platforms.Android.Bluetooth
         }
 
         const byte SignatureByte = 0xAA;
-        const byte Signature2Byte = 0x01;
-        const byte SignatureEndByte = 0x1C;
 
-        public void SendData(RCData data)
+        public bool SendData(ProtoData data)
         {
             // Convert to byte array. Structure: [Signature, Identifier, Data, Data2 (Direction for Motors)]
-            byte[] dataBytes = new byte[8];
+            byte[] dataBytes = new byte[6];
             byte IdentifierByte = (byte)data.Type;
 
             dataBytes[0] = SignatureByte;
-            dataBytes[1] = Signature2Byte;
 
-            if (data.Type == RCDataType.MotorStateChange)
+            if (data.Type == ProtoSentDataType.SetColor)
             {
-                dataBytes[2] = IdentifierByte;
-                dataBytes[3] = (byte)(System.Math.Abs(data.Speed));
-                dataBytes[4] = (byte)(data.Speed < 0 ? 0xFF : 0x00);
-                dataBytes[5] = (byte)(System.Math.Abs(data.Steer));
-                dataBytes[6] = (byte)(data.Steer < 0 ? 0xFF : 0x00);
+                dataBytes[1] = (byte)data.data1;
+                dataBytes[2] = (byte)data.data2;
+                dataBytes[3] = (byte)data.data3;
             }
 
-            dataBytes[7] = SignatureEndByte;
+            dataBytes[4] = IdentifierByte;
+
+            byte checksum = 0;
+
+            for (int i = 1; i < dataBytes.Length - 1; i++)
+            {
+                checksum += dataBytes[i];
+            }
+
+            dataBytes[5] = checksum;
 
             // Print to debug
             Console.WriteLine("Sending data: " + BitConverter.ToString(dataBytes));
 
             // Send data to all connected devices
-            foreach (BluetoothSocket socket in bluetoothSockets)
+            //foreach (BluetoothSocket socket in bluetoothSockets)
+            //{
+            //    socket.OutputStream.Write(dataBytes, 0, dataBytes.Length);
+            //}
+
+            try
             {
-                socket.OutputStream.Write(dataBytes, 0, dataBytes.Length);
+                if (_bluetoothSocket.IsConnected)
+                {
+                    // Send data to all connected devices
+                    foreach (BluetoothSocket socket in bluetoothSockets)
+                    {
+                        socket.OutputStream.Write(dataBytes, 0, dataBytes.Length);
+                    }
+                    return true;
+                }
+                else
+                    return false;
+            }
+            catch
+            {
+                return false;
             }
         }
     }

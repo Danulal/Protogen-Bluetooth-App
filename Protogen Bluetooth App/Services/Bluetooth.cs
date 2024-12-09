@@ -16,27 +16,29 @@ namespace Protogen_Bluetooth_App.Services
         public string Manufacturer;
     }
 
-    public enum RCDataType
+    public enum ProtoSentDataType
     {
-        MotorStateChange
+        SetColor,
+        SetFace
     }
 
-    public struct RCData
+    public struct ProtoData
     {
-        public RCDataType Type;
-        public int Speed;
-        public int Steer;
+        public ProtoSentDataType Type;
+        public int data1;
+        public int data2;
+        public int data3;
     }
 
     public interface IBluetoothService
     {
         List<RCBluetoothDevice> GetAvailableDevices();
 
-        void ConnectToDevice(RCBluetoothDevice device);
+        bool ConnectToDevice(RCBluetoothDevice device);
         void DisconnectDevice(RCBluetoothDevice device);
 
         bool isDeviceConnected(RCBluetoothDevice device);
 
-        void SendData(RCData data);
+        bool SendData(ProtoData data);
     }
 }
