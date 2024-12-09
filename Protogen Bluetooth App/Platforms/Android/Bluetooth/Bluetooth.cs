@@ -100,21 +100,38 @@ namespace Protogen_Bluetooth_App.Platforms.Android.Bluetooth
 
             dataBytes[0] = SignatureByte;
 
-            if (data.Type == ProtoSentDataType.SetColor)
+            switch (data.Type)
             {
-                dataBytes[1] = (byte)data.data1;
-                dataBytes[2] = (byte)data.data2;
-                dataBytes[3] = (byte)data.data3;
+                case ProtoSentDataType.SetColor: 
+                    dataBytes[1] = (byte)data.data1;
+                    dataBytes[2] = (byte)data.data2;
+                    dataBytes[3] = (byte)data.data3;
+                    break;
+                case ProtoSentDataType.ToggleGaymode:
+                    dataBytes[1] = 0;
+                    dataBytes[2] = 0;
+                    dataBytes[3] = 0;
+                    break;
+                case ProtoSentDataType.OverrideMenu:
+                    dataBytes[1] = (byte)data.data1;
+                    dataBytes[2] = 0;
+                    dataBytes[3] = 0;
+                    break;
+                default:
+                    break;
             }
+
+            
 
             dataBytes[4] = IdentifierByte;
 
             byte checksum = 0;
 
-            for (int i = 1; i < dataBytes.Length - 1; i++)
-            {
-                checksum += dataBytes[i];
-            }
+            //for (int i = 1; i < dataBytes.Length - 2; i++)
+            //{
+            //    Console.WriteLine("checksum: " + dataBytes.Length);
+            //    checksum += dataBytes[i];
+            //}
 
             dataBytes[5] = checksum;
 

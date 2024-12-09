@@ -12,15 +12,15 @@
     </ContentPage.Resources>
     <FlexLayout Direction="Row" JustifyContent="SpaceAround">
         <VerticalStackLayout>
-            <Button Style="{StaticResource FlexButton}" Text="Sad"/>
+            <Button Style="{StaticResource FlexButton}" Text="Default"/>
             <Button Style="{StaticResource FlexButton}" Text="Angry"/>
-            <Button Style="{StaticResource FlexButton}" Text="..."/>
-            <Button Style="{StaticResource FlexButton}" Text="..."/>
+            <Button Style="{StaticResource FlexButton}" Text="Doubt"/>
+            <Button Style="{StaticResource FlexButton}" Text="Frown"/>
         </VerticalStackLayout>
         <VerticalStackLayout>
-            <Button Style="{StaticResource FlexButton}" Text="Happy"/>
-            <Button Style="{StaticResource FlexButton}" Text="..."/>
-            <Button Style="{StaticResource FlexButton}" Text="..."/>
+            <Button Style="{StaticResource FlexButton}" Text="Look Up"/>
+            <Button Style="{StaticResource FlexButton}" Text="Sad"/>
+            <Button Style="{StaticResource FlexButton}" Text="Surprised"/>
             <Button Style="{StaticResource FlexButton}" Text="..."/>
         </VerticalStackLayout>
     </FlexLayout>

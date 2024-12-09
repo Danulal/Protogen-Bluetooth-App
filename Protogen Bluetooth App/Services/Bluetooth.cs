@@ -19,6 +19,8 @@ namespace Protogen_Bluetooth_App.Services
     public enum ProtoSentDataType
     {
         SetColor,
+        ToggleGaymode,
+        OverrideMenu,
         SetFace
     }
 
