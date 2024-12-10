@@ -24,12 +24,12 @@
         <Tab Title="Expressions" Icon="alert_circle_outline.svg">
             <ShellContent ContentTemplate="{DataTemplate local:ExpressionsPage}"/>
         </Tab>
-        <Tab Title="Animations" Icon="play_outline.svg">
+        <!--<Tab Title="Animations" Icon="play_outline.svg">
             <ShellContent ContentTemplate="{DataTemplate local:AnimationsPage}"/>
-        </Tab>
-        <Tab Title="Settings" Icon="settings_outline.svg">
+        </Tab>-->
+        <!--<Tab Title="Settings" Icon="settings_outline.svg">
             <ShellContent ContentTemplate="{DataTemplate local:SettingsPage}"/>
-        </Tab>
+        </Tab>-->
     </TabBar>
 
 </Shell>
