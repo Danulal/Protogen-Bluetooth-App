@@ -20,7 +20,7 @@
                 PickedColorChanged="ColorPicker_PickedColorChanged">
         </controls:ColorPicker>
         <FlexLayout Direction="Row" JustifyContent="SpaceBetween">
-            <Button Margin="0,5,0,0" WidthRequest="125" FontSize="18" Text="Save Color"/>
+            <Button x:Name="BtnSetDefaultColorEEPROM" Margin="0,5,0,0" WidthRequest="125" FontSize="18" Text="Set Default" Clicked="BtnSetDefaultColorEEPROM_Clicked"/>
             <Button x:Name="BtnConfirmColor" Text="Confirm" FontSize="20" Margin="0,5,0,0" WidthRequest="125" Clicked="BtnConfirmColor_Clicked"/>
             <Button x:Name="BtnGayMode" Margin="0,5,0,0" WidthRequest="125" FontSize="18" Text="Gay Mode" Clicked="BtnGayMode_Clicked"/>
         </FlexLayout>

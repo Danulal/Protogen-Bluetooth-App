@@ -54,4 +54,13 @@ public partial class ColorPage : ContentPage
         CurrentColorIndicator.Text = $"R: {e3.Red * 255:0}, G: {e3.Green * 255:0}, B: {e3.Blue * 255:0}";
         CurrentColorIndicator.BackgroundColor = new Color(e3.Red, e3.Green, e3.Blue);
     }
+
+    private void BtnSetDefaultColorEEPROM_Clicked(object sender, EventArgs e)
+    {
+        Services.IBluetoothService bluetoothService = DependencyService.Get<Services.IBluetoothService>();
+        if (bluetoothService.SendData(new Services.ProtoData { Type = Services.ProtoSentDataType.WriteDefaultColorEEPROM, data1 = 1, data2 = 0, data3 = 0 }) == false)
+        {
+            //Toast.Make("Failed to send data.", ToastDuration.Short, 14);
+        }
+    }
 }

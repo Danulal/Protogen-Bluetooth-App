@@ -23,7 +23,7 @@ namespace Protogen_Bluetooth_App.Services
         OverrideMenu,
         OverrideExpressions,
         Expression,
-        SetFace
+        WriteDefaultColorEEPROM
     }
 
     public struct ProtoData
