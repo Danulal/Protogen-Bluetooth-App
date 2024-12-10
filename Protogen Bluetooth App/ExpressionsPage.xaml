@@ -3,25 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Protogen_Bluetooth_App.ExpressionsPage"
              Title="Expressions">
+
     <ContentPage.Resources>
         <Style x:Key="FlexButton" TargetType="Button">
-            <Setter Property="HeightRequest" Value="150"/>
-            <Setter Property="WidthRequest" Value="175"/>
-            <Setter Property="Margin" Value="0,15,0,0"/>
+            <Setter Property="HeightRequest" Value="120"/>
+            <Setter Property="WidthRequest" Value="190"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
         </Style>
     </ContentPage.Resources>
-    <FlexLayout Direction="Row" JustifyContent="SpaceAround">
-        <VerticalStackLayout>
-            <Button Style="{StaticResource FlexButton}" Text="Default"/>
-            <Button Style="{StaticResource FlexButton}" Text="Angry"/>
-            <Button Style="{StaticResource FlexButton}" Text="Doubt"/>
-            <Button Style="{StaticResource FlexButton}" Text="Frown"/>
-        </VerticalStackLayout>
-        <VerticalStackLayout>
-            <Button Style="{StaticResource FlexButton}" Text="Look Up"/>
-            <Button Style="{StaticResource FlexButton}" Text="Sad"/>
-            <Button Style="{StaticResource FlexButton}" Text="Surprised"/>
-            <Button Style="{StaticResource FlexButton}" Text="..."/>
-        </VerticalStackLayout>
-    </FlexLayout>
+    <VerticalStackLayout>
+        <Grid>
+            <Label Text="Override Menu Expression" FontSize="18" VerticalOptions="Center" Margin="20,0,0,0" HorizontalOptions="Start"/>
+            <Switch IsToggled="True" Toggled="Switch_Toggled" Margin="0,0,10,0"/>
+        </Grid>
+        <FlexLayout Direction="Row" JustifyContent="SpaceAround">
+            <VerticalStackLayout>
+                <Button x:Name="BtnDefault" Style="{StaticResource FlexButton}" Text="Default" Clicked="BtnDefault_Clicked"/>
+                <Button x:Name="BtnAngry" Style="{StaticResource FlexButton}" Text="Angry" Clicked="BtnAngry_Clicked"/>
+                <Button x:Name="BtnDoubt" Style="{StaticResource FlexButton}" Text="Doubt" Clicked="BtnDoubt_Clicked"/>
+                <Button x:Name="BtnFrown" Style="{StaticResource FlexButton}" Text="Frown" Clicked="BtnFrown_Clicked"/>
+                <Button x:Name="BtnAudioReactive" Style="{StaticResource FlexButton}" Text="Audio Reactive" Clicked="BtnAudioReactive_Clicked"/>
+
+            </VerticalStackLayout>
+            <VerticalStackLayout>
+                <Button x:Name="BtnLookUp" Style="{StaticResource FlexButton}" Text="Look Up" Clicked="BtnLookUp_Clicked"/>
+                <Button x:Name="BtnSad" Style="{StaticResource FlexButton}" Text="Sad" Clicked="BtnSad_Clicked"/>
+                <Button x:Name="BtnSurprised" Style="{StaticResource FlexButton}" Text="Surprised" Clicked="BtnSurprised_Clicked"/>
+                <Button x:Name="BtnOscilloscope" Style="{StaticResource FlexButton}" Text="Oscilloscope" Clicked="BtnOscilloscope_Clicked"/>
+                <Button x:Name="BtnSpectrum" Style="{StaticResource FlexButton}" Text="Spectrum Analyzer" Clicked="BtnSpectrum_Clicked"/>
+
+            </VerticalStackLayout>
+        </FlexLayout>
+    </VerticalStackLayout>
 </ContentPage>

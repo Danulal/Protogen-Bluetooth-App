@@ -21,6 +21,8 @@ namespace Protogen_Bluetooth_App.Services
         SetColor,
         ToggleGaymode,
         OverrideMenu,
+        OverrideExpressions,
+        Expression,
         SetFace
     }
 

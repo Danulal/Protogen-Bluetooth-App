@@ -24,16 +24,6 @@
             <Button x:Name="BtnConfirmColor" Text="Confirm" FontSize="20" Margin="0,5,0,0" WidthRequest="125" Clicked="BtnConfirmColor_Clicked"/>
             <Button x:Name="BtnGayMode" Margin="0,5,0,0" WidthRequest="125" FontSize="18" Text="Gay Mode" Clicked="BtnGayMode_Clicked"/>
         </FlexLayout>
-        <FlexLayout Direction="Row" JustifyContent="SpaceBetween">
-            <Button BackgroundColor="Black" Style="{StaticResource SavedColorBtn}"/>
-            <Button BackgroundColor="Purple"  Style="{StaticResource SavedColorBtn}"/>
-            <Button BackgroundColor="White" Style="{StaticResource SavedColorBtn}"/>
-            <Button Style="{StaticResource SavedColorBtn}"/>
-            <Button Style="{StaticResource SavedColorBtn}"/>
-            <Button Style="{StaticResource SavedColorBtn}"/>
-            <Button Style="{StaticResource SavedColorBtn}"/>
-            <Button Style="{StaticResource SavedColorBtn}"/>
-        </FlexLayout>
         <Label x:Name="CurrentColorIndicator" Margin="0,5,0,0" HeightRequest="50" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
                BackgroundColor="HotPink"
                Text="Color :3"/>
