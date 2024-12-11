@@ -17,6 +17,7 @@
                 PointerRingBorderUnits="0.3"
                 PointerRingDiameterUnits="0.7"
                 HeightRequest="300"
+                Margin="15,0"
                 PickedColorChanged="ColorPicker_PickedColorChanged">
         </controls:ColorPicker>
         <FlexLayout Direction="Row" JustifyContent="SpaceBetween">
