@@ -15,45 +15,8 @@
             <Setter Property="VerticalOptions" Value="Center"/>
         </Style>
     </ContentPage.Resources>
-    <ScrollView>
-        <VerticalStackLayout>
-            <Grid>
-                <Label Text="Boop Sensor" Style="{StaticResource ToggleBtnText}"/>
-                <Switch/>
-            </Grid>
-            <Grid>
-                <Label Text="Microphone" Style="{StaticResource ToggleBtnText}"/>
-                <Switch/>
-            </Grid>
-            <Grid>
-                <Label Text="other setting" Style="{StaticResource ToggleBtnText}"/>
-                <Switch/>
-            </Grid>
-            <Grid>
-                <Label Text="other setting" Style="{StaticResource ToggleBtnText}"/>
-                <Switch/>
-            </Grid>
-            <Grid>
-                <Label Text="other setting" Style="{StaticResource ToggleBtnText}"/>
-                <Switch/>
-            </Grid>
-            <Grid>
-                <Label Text="other setting" Style="{StaticResource ToggleBtnText}"/>
-                <Switch/>
-            </Grid>
 
-            <VerticalStackLayout>
-                <Label Text="Microphone Sensitivity" Style="{StaticResource ToggleBtnText}"/>
-                <Slider Style="{StaticResource SettingsSlider}"/>
-            </VerticalStackLayout>
-            <VerticalStackLayout>
-                <Label Text="Animation Speed" Style="{StaticResource ToggleBtnText}"/>
-                <Slider Style="{StaticResource SettingsSlider}"/>
-            </VerticalStackLayout>
-            <VerticalStackLayout>
-                <Label Text="Other Thingy" Style="{StaticResource ToggleBtnText}"/>
-                    <Slider Style="{StaticResource SettingsSlider}"/>
-            </VerticalStackLayout>
-        </VerticalStackLayout>
-    </ScrollView>
+    <Button x:Name="MenuButton"
+            Text="Menu Button" FontSize="32" Margin="5,5"
+            Pressed="MenuButton_Pressed" Released="MenuButton_Released"/>
 </ContentPage>

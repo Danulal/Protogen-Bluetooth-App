@@ -132,6 +132,11 @@ namespace Protogen_Bluetooth_App.Platforms.Android.Bluetooth
                     dataBytes[2] = 0;
                     dataBytes[3] = 0;
                     break;
+                case ProtoSentDataType.Setting:
+                    dataBytes[1] = (byte)data.data1;
+                    dataBytes[2] = (byte)data.data2;
+                    dataBytes[3] = 0;
+                    break;
                 default:
                     break;
             }
